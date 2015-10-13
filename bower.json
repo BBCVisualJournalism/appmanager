@@ -5,6 +5,7 @@
   "authors": [
     "fewstera <aidan.fewster@bbc.co.uk>"
   ],
+  "main": "assets/js/appManager.js",
   "description": "App Manager for displaying visual journalism content in the BBC News App",
   "license": "MIT",
   "ignore": [

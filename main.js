@@ -1,6 +1,6 @@
 define([
     'bootstrap',
-    'istats'
+    'istats-1'
 ], function (news, istats) {
 
     var getQueryStringValue = function (querystring, param) {

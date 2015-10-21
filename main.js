@@ -4,7 +4,7 @@ define([
 ], function (news, istats) {
 
     var getQueryStringValue = function (queryString, param) {
-        var reg = new RegExp( '[?&]' + param + '=([^&#]*)', 'i' ),
+        var reg = new RegExp('[?&]' + param + '=([^&#]*)', 'i'),
             string = reg.exec(queryString);
 
         return string ? string[1] : null;

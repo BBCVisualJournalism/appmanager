@@ -10,8 +10,8 @@ define([
         return string ? string[1] : null;
     };
 
-    var hitEndpoint = function (url) {
-        news.$('body').append('<p style="position: absolute; top: -999em;"><img src="' + url + '" width="1" height="1" /></p>');
+    var hitEndpoint = function (url, cssClass) {
+        news.$('body').append('<p style="position: absolute; top: -999em;"><img src="' + url + '" width="1" height="1" class="' + cssClass + '" /></p>');
     };
 
     var hashOfThePage = window.location.hash.substr(1),
@@ -33,13 +33,13 @@ define([
             window.istatsTrackingUrl += '&iframe_host=' + encodeURI(hostId[1]);
         }
     })();
-    hitEndpoint(window.istatsTrackingUrl);
+    hitEndpoint(window.istatsTrackingUrl, 'iStats');
 
     news.$.on('istats', function (actionType, actionName, viewLabel) {
         istats.log(actionType, actionName, {'view': viewLabel});
     });
 
     news.$.on('pageLoaded', function () {
-        hitEndpoint('bbcnewsapp://visualjournalism/pageloaded');
+        hitEndpoint('bbcnewsapp://visualjournalism/pageloaded', 'pageLoaded');
     });
 });

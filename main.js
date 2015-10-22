@@ -42,4 +42,8 @@ define([
     news.$.on('pageLoaded', function () {
         hitEndpoint('bbcnewsapp://visualjournalism/pageloaded', 'pageLoaded');
     });
+    
+    news.$.on('app-share', function (appMessage) {
+        hitEndpoint('bbcnewsapp://visualjournalism/share?title=' + appMessage.title + '&text=' + appMessage.text, 'appShare');
+    });
 });

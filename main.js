@@ -22,6 +22,7 @@ define([
     window.istats = {
         enabled: true
     };
+    window.orb = {};
     window.bbcFlagpoles_istats = 'ON';
     window.istatsTrackingUrl = '//sa.bbc.co.uk/bbc/bbc/s?name=' + countername + '&cps_asset_id=' + cpsAssetId + '&page_type=' + pageType;
     (function () {

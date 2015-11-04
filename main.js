@@ -34,7 +34,7 @@ define([
             window.istatsTrackingUrl += '&iframe_host=' + encodeURI(hostId[1]);
         }
     })();
-    hitEndpoint(window.istatsTrackingUrl);
+    document.write('<' + 'p style="position: absolute; top: -999em;"><' + 'img src="' + window.istatsTrackingUrl + '" height="1" width="1" alt="" /><' + '/p>');
 
     news.$.on('istats', function (actionType, actionName, viewLabel) {
         istats.log(actionType, actionName, {'view': viewLabel});
@@ -43,7 +43,7 @@ define([
     news.$.on('pageLoaded', function () {
         hitEndpoint('bbcnewsapp://visualjournalism/pageloaded');
     });
-    
+
     news.$.on('app-share', function (appMessage) {
         hitEndpoint('bbcnewsapp://visualjournalism/share?title=' + appMessage.title + '&text=' + appMessage.text, 'appShare');
     });

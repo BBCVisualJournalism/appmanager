@@ -34,7 +34,7 @@ define([
             window.istatsTrackingUrl += '&iframe_host=' + encodeURI(hostId[1]);
         }
     })();
-    document.write('<' + 'p style="position: absolute; top: -999em;"><' + 'img src="' + window.istatsTrackingUrl + '" height="1" width="1" alt="" /><' + '/p>');
+    document.body.innerHTML += '<' + 'p style="position: absolute; top: -999em;"><' + 'img src="' + window.istatsTrackingUrl + '" height="1" width="1" alt="" /><' + '/p>';
 
     news.$.on('istats', function (actionType, actionName, viewLabel) {
         istats.log(actionType, actionName, {'view': viewLabel});

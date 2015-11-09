@@ -11,7 +11,7 @@ define([
     };
 
     var hitEndpoint = function (url) {
-        window.location.href = url;
+        window.location = url;
     };
 
     var hashOfThePage = window.location.hash.substr(1),

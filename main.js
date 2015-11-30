@@ -11,7 +11,13 @@ define([
     };
 
     var hitEndpoint = function (url) {
-        window.location = url;
+        // Check if we're running under cucumber
+        if (!navigator.userAgent.match(/^ *cucumber *$/i)) {
+            window.location = url;
+        } else {
+            window.locations_visited = window.locations_visited || [];
+            window.locations_visited.push(url);
+        }
     };
 
     var hashOfThePage = window.location.hash.substr(1),

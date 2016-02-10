@@ -1,7 +1,4 @@
-define([
-    'bootstrap',
-    'istats-1'
-], function (news, istats) {
+define(['bootstrap', 'istats-1'], function (news, istats) {
 
     var getQueryStringValue = function (queryString, param) {
         var reg = new RegExp('[?&]' + param + '=([^&#]*)', 'i'),
@@ -42,15 +39,15 @@ define([
     })();
     document.body.innerHTML += '<' + 'p style="position: absolute; top: -999em;"><' + 'img src="' + window.istatsTrackingUrl + '" height="1" width="1" alt="" /><' + '/p>';
 
-    news.$.on('istats', function (actionType, actionName, viewLabel) {
+    news.pubsub.on('istats', function (actionType, actionName, viewLabel) {
         istats.log(actionType, actionName, {'view': viewLabel});
     });
 
-    news.$.on('pageLoaded', function () {
+    news.pubsub.on('pageLoaded', function () {
         hitEndpoint('bbcnewsapp://visualjournalism/pageloaded');
     });
 
-    news.$.on('app-share', function (appMessage) {
+    news.pubsub.on('app-share', function (appMessage) {
         hitEndpoint('bbcnewsapp://visualjournalism/share?title=' + appMessage.title + '&text=' + appMessage.text, 'appShare');
     });
 });
